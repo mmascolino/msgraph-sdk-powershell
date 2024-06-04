@@ -26,9 +26,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
-
                 
     # Check if error report exists
     - name: Check file existence
@@ -38,8 +35,8 @@ jobs:
         files: "docs/OpenApiInfo/v1.0/openAPIErrors.csv"
     
     # If it exists then add a warning to comment section of the PR
-    - name: File exists
-      if: steps.check_files.outputs.files_exists == 'true'
+    - name: File exists in PR. Comment and Request PR changes
+      if: ${{ steps.check_files.outputs.files_exists == 'true' && github.event_name == 'pull_request' }}
       uses: actions/github-script@v7
       with:
         script: |
@@ -62,6 +59,10 @@ jobs:
           })
 
           core.setFailed(body)
+
+    - name: File exists on branch. Fail the job
+      if: ${{ steps.check_files.outputs.files_exists == 'true' && github.event_name != 'pull_request' }}
+      run: exit 1;
 
 # [0] https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
 # [1] https://hub.github.com/hub-pull-request.1.html
