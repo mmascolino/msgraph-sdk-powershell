@@ -104,7 +104,7 @@ paths:
       description: Read properties and relationships of the user object.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/intune-mam-user-get?view=graph-rest-1.0
       operationId: user_GetUser
       parameters:
         - name: user-id
@@ -369,7 +369,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -667,7 +667,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -729,7 +729,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -1486,7 +1486,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -1849,7 +1849,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -1911,7 +1911,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -1977,7 +1977,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -2932,7 +2932,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -2994,7 +2994,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -3056,7 +3056,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -3584,7 +3584,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -3646,7 +3646,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -3708,7 +3708,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -4637,7 +4637,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -4699,7 +4699,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -4761,7 +4761,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -8972,7 +8972,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -9034,7 +9034,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -9096,7 +9096,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -13700,7 +13700,7 @@ components:
             startDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
               type: string
-              description: The meeting start time in UTC. Required when you create an online meeting.
+              description: The meeting start time in UTC.
               format: date-time
               nullable: true
             recordings:
@@ -20382,7 +20382,7 @@ components:
           $ref: '#/components/schemas/microsoft.graph.identitySet'
         scope:
           type: string
-          description: 'Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.'
+          description: 'Indicates the scope of how the item is shared. The possible values are: anonymous, organization, or users. Read-only.'
           nullable: true
         sharedBy:
           $ref: '#/components/schemas/microsoft.graph.identitySet'

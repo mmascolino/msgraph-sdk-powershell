@@ -1392,11 +1392,11 @@ paths:
     get:
       tags:
         - chats.conversationMember
-      summary: Get conversationMember in a chat
-      description: Retrieve a conversationMember from a chat.
+      summary: Get conversationMember
+      description: Retrieve a conversationMember from a chat or channel.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/chat-get-members?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/conversationmember-get?view=graph-rest-1.0
       operationId: chat_GetMember
       parameters:
         - name: chat-id
@@ -16002,11 +16002,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: team.channel_CreateMember
       parameters:
         - name: team-id
@@ -16110,11 +16110,11 @@ paths:
     patch:
       tags:
         - teams.channel
-      summary: Update member in channel
-      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+      summary: Update conversationMember
+      description: Update the role of a conversationMember in a team or channel.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
       operationId: team.channel_UpdateMember
       parameters:
         - name: team-id
@@ -17328,11 +17328,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Reply to a message in a channel
-      description: Create a new reply to a chatMessage in a specified channel.
+      summary: Send replies to a message in a channel
+      description: Send a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
       operationId: team.channel.message_CreateReply
       parameters:
         - name: team-id
@@ -52786,7 +52786,7 @@ components:
           $ref: '#/components/schemas/microsoft.graph.identitySet'
         scope:
           type: string
-          description: 'Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.'
+          description: 'Indicates the scope of how the item is shared. The possible values are: anonymous, organization, or users. Read-only.'
           nullable: true
         sharedBy:
           $ref: '#/components/schemas/microsoft.graph.identitySet'
@@ -58271,7 +58271,7 @@ components:
             startDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
               type: string
-              description: The meeting start time in UTC. Required when you create an online meeting.
+              description: The meeting start time in UTC.
               format: date-time
               nullable: true
             recordings:

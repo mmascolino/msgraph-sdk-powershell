@@ -1250,11 +1250,11 @@ paths:
     put:
       tags:
         - external.externalConnection
-      summary: Create externalItem
-      description: Create a new externalItem. This API can be used to create a custom item. The containing externalConnection must have a schema registered of the corresponding type.
+      summary: Update externalItem
+      description: Update the properties of an externalitem.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-put-items?view=graph-rest-beta
+        url: https://learn.microsoft.com/graph/api/externalconnectors-externalitem-update?view=graph-rest-beta
       operationId: external.connection_SetItem
       parameters:
         - name: externalConnection-id

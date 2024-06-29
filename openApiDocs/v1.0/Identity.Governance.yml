@@ -7112,11 +7112,11 @@ paths:
     get:
       tags:
         - identityGovernance.entitlementManagement
-      summary: Get accessPackage
-      description: Retrieve the properties and relationships of an accessPackage object.
+      summary: List resourceRoleScopes
+      description: Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/accesspackage-list-resourcerolescopes?view=graph-rest-1.0
       operationId: identityGovernance.entitlementManagement_GetAccessPackage
       parameters:
         - name: accessPackage-id
@@ -14662,11 +14662,11 @@ paths:
     delete:
       tags:
         - identityGovernance.entitlementManagement
-      summary: Delete accessPackageAssignmentRequestWorkflowExtension
-      description: 'Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:'
+      summary: Delete accessPackageAssignmentWorkflowExtension
+      description: 'Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:'
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-delete?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-delete?view=graph-rest-1.0
       operationId: identityGovernance.entitlementManagement.catalog_DeleteCustomWorkflowExtension
       parameters:
         - name: accessPackageCatalog-id
@@ -36884,7 +36884,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -37086,7 +37086,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -37492,7 +37492,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -37830,7 +37830,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -38476,7 +38476,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -38980,7 +38980,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -39491,7 +39491,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -40462,7 +40462,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -41308,7 +41308,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -41802,7 +41802,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -42249,7 +42249,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -42795,7 +42795,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -43052,7 +43052,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -43836,7 +43836,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -44682,7 +44682,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -45020,7 +45020,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -45675,7 +45675,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -46185,7 +46185,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -46699,7 +46699,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -47677,7 +47677,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -48530,7 +48530,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -49027,7 +49027,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -49477,7 +49477,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -50029,7 +50029,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -50286,7 +50286,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -51076,7 +51076,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -51981,7 +51981,7 @@ paths:
               type: string
       responses:
         2XX:
-          description: Result entities
+          description: Entity result.
           content:
             application/json:
               schema:
@@ -56259,11 +56259,11 @@ paths:
     get:
       tags:
         - identityGovernance.termsOfUseContainer
-      summary: Get agreement
-      description: Retrieve the properties and relationships of an agreement object.
+      summary: List files (terms of use agreement files)
+      description: Retrieve all files related to an agreement. This includes the default file and all localized files.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0
       operationId: identityGovernance.termsGraphOPreUse_GetAgreement
       parameters:
         - name: agreement-id
@@ -73259,7 +73259,7 @@ components:
             startDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
               type: string
-              description: The meeting start time in UTC. Required when you create an online meeting.
+              description: The meeting start time in UTC.
               format: date-time
               nullable: true
             recordings:
@@ -80163,7 +80163,7 @@ components:
           $ref: '#/components/schemas/microsoft.graph.identitySet'
         scope:
           type: string
-          description: 'Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.'
+          description: 'Indicates the scope of how the item is shared. The possible values are: anonymous, organization, or users. Read-only.'
           nullable: true
         sharedBy:
           $ref: '#/components/schemas/microsoft.graph.identitySet'
