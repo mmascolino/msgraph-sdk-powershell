@@ -78,7 +78,7 @@ $ApiVersion | ForEach-Object {
             if (-not($Null -eq $CommandAliasValue)) {
                 $CommandAliasValue = $CommandAliasValue.Replace("[global::System.Management.Automation.Alias(`"", "").Replace("`")", "").Replace("]", "")
             }
-            if (-not($CommandAliasValue.Contains("-Mg"))) {
+            if(-not($CommandAliasValue.Contains("-Mg"))) {
                 $CommandAliasValue = $null
             }
             $MappingValue = @{
@@ -103,40 +103,22 @@ $ApiVersion | ForEach-Object {
                 if ($IncludePermissions) {
                     try {
                         Write-Debug "Fetching permissions for $CommandMappingKey"
-                        #Group permissions by permission type with each having it's own array
-                        $SortedApplicationPermissions = @()
-                        $SortedDelegatedPermissions = @()
-                        #Combine all permissions
-                        $CombinedPermissions = @()
+                        $Permissions = @()
                         $PermissionsResponse = Invoke-RestMethod -Uri "$($PermissionsUrl)?requesturl=$($MappingValue.Uri)&method=$($MappingValue.Method)" -ErrorAction SilentlyContinue
                         $PermissionsResponse | ForEach-Object {
-                            if ($_.ScopeType -eq "Application") {
-                                $SortedApplicationPermissions += [PSCustomObject]@{
-                                    Name             = $_.value
-                                    Description      = $_.consentDisplayName
-                                    FullDescription  = $_.consentDescription
-                                    IsAdmin          = $_.IsAdmin
-                                    PermissionType   = $_.ScopeType
-                                    IsLeastPrivilege = $_.isLeastPrivilege
-                                }
-                            }
-                            else {
-                                $SortedDelegatedPermissions += [PSCustomObject]@{
-                                    Name             = $_.value
-                                    Description      = $_.consentDisplayName
-                                    FullDescription  = $_.consentDescription
-                                    IsAdmin          = $_.IsAdmin
-                                    PermissionType   = $_.ScopeType
-                                    IsLeastPrivilege = $_.isLeastPrivilege
-                                }
+                            $Permissions += [PSCustomObject]@{
+                                Name             = $_.value
+                                Description      = $_.consentDisplayName
+                                FullDescription  = $_.consentDescription
+                                IsAdmin          = $_.IsAdmin
+                                PermissionType   = $_.ScopeType
+                                IsLeastPrivilege = $_.isLeastPrivilege
                             }
                         }
-                        $SortedApplicationPermissions = $SortedApplicationPermissions | Sort-Object -Property IsLeastPrivilege
-                        $SortedDelegatedPermissions = $SortedDelegatedPermissions | Sort-Object -Property IsLeastPrivilege
-                        [array]::Reverse($SortedApplicationPermissions)
-                        [array]::Reverse($SortedDelegatedPermissions)
-                        $CombinedPermissions = $($SortedApplicationPermissions; $SortedDelegatedPermissions)
-                        $MappingValue.Permissions = $CombinedPermissions
+                        $Permissions = $Permissions | Sort-Object -Property PermissionType
+                        $Permissions = $Permissions | Sort-Object -Property IsLeastPrivilege
+                        [array]::Reverse($Permissions)
+                        $MappingValue.Permissions = $Permissions
                     }
                     catch {
                         Write-Warning "Failed to fetch permissions: $($PermissionsUrl)?requesturl=$($MappingValue.Uri)&method=$($MappingValue.Method)"
