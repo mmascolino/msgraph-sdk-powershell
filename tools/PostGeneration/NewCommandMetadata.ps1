@@ -129,7 +129,7 @@ $ApiVersion | ForEach-Object {
                                     PermissionType   = $_.ScopeType
                                     IsLeastPrivilege = $_.isLeastPrivilege
                                 }
-                            }    
+                            }
                         }
                         $SortedApplicationPermissions = $SortedApplicationPermissions | Sort-Object -Property IsLeastPrivilege
                         $SortedDelegatedPermissions = $SortedDelegatedPermissions | Sort-Object -Property IsLeastPrivilege
