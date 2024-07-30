@@ -13599,7 +13599,7 @@ paths:
       tags:
         - solutions.virtualEventsRoot
       summary: Update virtualEventTownhall
-      description: Update the properties of a vvirtualEventTownhall object.
+      description: Update the properties of a virtualEventTownhall object.
       externalDocs:
         description: Find more info here
         url: https://learn.microsoft.com/graph/api/virtualeventtownhall-update?view=graph-rest-beta
@@ -16428,6 +16428,314 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Update the navigation property registrationConfiguration in solutions
+      operationId: solution.virtualEvent.webinar_UpdateRegistrationConfiguration
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.virtualEventWebinarRegistrationConfiguration'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.virtualEventWebinarRegistrationConfiguration'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Delete navigation property registrationConfiguration for solutions
+      operationId: solution.virtualEvent.webinar_DeleteRegistrationConfiguration
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+        - name: If-Match
+          in: header
+          description: ETag
+          style: simple
+          schema:
+            type: string
+      responses:
+        2XX:
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/solutions/virtualEvents/webinars/{virtualEventWebinar-id}/registrationConfiguration/questions':
+    get:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: List questions
+      description: Get a list of all registration questions for a webinar. The list can include either predefined registration questions or custom registration questions.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/virtualeventregistrationconfiguration-list-questions?view=graph-rest-beta
+      operationId: solution.virtualEvent.webinar.registrationConfiguration_ListQuestion
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          $ref: '#/components/responses/microsoft.graph.virtualEventRegistrationQuestionBaseCollectionResponse'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Create question
+      description: Create a registration question for a webinar. You can create either a predefined registration question or a custom registration question.
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/virtualeventregistrationconfiguration-post-questions?view=graph-rest-beta
+      operationId: solution.virtualEvent.webinar.registrationConfiguration_CreateQuestion
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBase'
+        required: true
+      responses:
+        2XX:
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBase'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/solutions/virtualEvents/webinars/{virtualEventWebinar-id}/registrationConfiguration/questions/{virtualEventRegistrationQuestionBase-id}':
+    get:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Get questions from solutions
+      description: Registration questions.
+      operationId: solution.virtualEvent.webinar.registrationConfiguration_GetQuestion
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+        - name: virtualEventRegistrationQuestionBase-id
+          in: path
+          description: The unique identifier of virtualEventRegistrationQuestionBase
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventRegistrationQuestionBase
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBase'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Update the navigation property questions in solutions
+      operationId: solution.virtualEvent.webinar.registrationConfiguration_UpdateQuestion
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+        - name: virtualEventRegistrationQuestionBase-id
+          in: path
+          description: The unique identifier of virtualEventRegistrationQuestionBase
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventRegistrationQuestionBase
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBase'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBase'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Delete virtualEventRegistrationQuestionBase
+      description: 'Delete a registration question from a webinar. The question can either be a predefined registration question or a custom registration question. '
+      externalDocs:
+        description: Find more info here
+        url: https://learn.microsoft.com/graph/api/virtualeventregistrationquestionbase-delete?view=graph-rest-beta
+      operationId: solution.virtualEvent.webinar.registrationConfiguration_DeleteQuestion
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+        - name: virtualEventRegistrationQuestionBase-id
+          in: path
+          description: The unique identifier of virtualEventRegistrationQuestionBase
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventRegistrationQuestionBase
+        - name: If-Match
+          in: header
+          description: ETag
+          style: simple
+          schema:
+            type: string
+      responses:
+        2XX:
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/solutions/virtualEvents/webinars/{virtualEventWebinar-id}/registrationConfiguration/questions/$count':
+    get:
+      tags:
+        - solutions.virtualEventsRoot
+      summary: Get the number of the resource
+      operationId: solution.virtualEvent.webinar.registrationConfiguration.question_GetCount
+      parameters:
+        - name: virtualEventWebinar-id
+          in: path
+          description: The unique identifier of virtualEventWebinar
+          required: true
+          style: simple
+          schema:
+            type: string
+          x-ms-docs-key-type: virtualEventWebinar
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        2XX:
+          $ref: '#/components/responses/ODataCountResponse'
+        default:
+          $ref: '#/components/responses/error'
   '/solutions/virtualEvents/webinars/{virtualEventWebinar-id}/registrations':
     get:
       tags:
@@ -20308,6 +20616,8 @@ components:
               nullable: true
             endDateTime:
               $ref: '#/components/schemas/microsoft.graph.dateTimeTimeZone'
+            settings:
+              $ref: '#/components/schemas/microsoft.graph.virtualEventSettings'
             startDateTime:
               $ref: '#/components/schemas/microsoft.graph.dateTimeTimeZone'
             status:
@@ -20421,7 +20731,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.identity'
             registrantId:
               type: string
-              description: Unique identifier of a meetingRegistrant. Presents when the participant has registered for the meeting.
+              description: Unique identifier of a meetingRegistrant. Presents when the participant has registered for the meeting. (deprecated)
               nullable: true
             role:
               type: string
@@ -20550,6 +20860,22 @@ components:
               nullable: true
             isWaitlistEnabled:
               type: boolean
+              nullable: true
+          additionalProperties:
+            type: object
+    microsoft.graph.virtualEventRegistrationQuestionBase:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: virtualEventRegistrationQuestionBase
+          type: object
+          properties:
+            displayName:
+              type: string
+              description: Display name of the registration question.
+              nullable: true
+            isRequired:
+              type: boolean
+              description: Indicates whether an answer to the question is required. The default value is false.
               nullable: true
           additionalProperties:
             type: object
@@ -21378,6 +21704,16 @@ components:
               $ref: '#/components/schemas/microsoft.graph.identity'
           additionalProperties:
             type: object
+    microsoft.graph.virtualEventSettings:
+      title: virtualEventSettings
+      type: object
+      properties:
+        isAttendeeEmailNotificationEnabled:
+          type: boolean
+          description: Indicates whether virtual event attendees receive email notifications.
+          nullable: true
+      additionalProperties:
+        type: object
     microsoft.graph.virtualEventStatus:
       title: virtualEventStatus
       enum:
@@ -21439,8 +21775,7 @@ components:
             allowedPresenters:
               $ref: '#/components/schemas/microsoft.graph.onlineMeetingPresenters'
             allowLiveShare:
-              type: boolean
-              nullable: true
+              $ref: '#/components/schemas/microsoft.graph.meetingLiveShareOptions'
             allowMeetingChat:
               $ref: '#/components/schemas/microsoft.graph.meetingChatMode'
             allowParticipantsToChangeName:
@@ -22130,6 +22465,19 @@ components:
           nullable: true
       additionalProperties:
         type: object
+    microsoft.graph.virtualEventRegistrationQuestionBaseCollectionResponse:
+      title: Collection of virtualEventRegistrationQuestionBase
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBase'
+        '@odata.nextLink':
+          type: string
+          nullable: true
+      additionalProperties:
+        type: object
     microsoft.graph.physicalAddressType:
       title: physicalAddressType
       enum:
@@ -22523,6 +22871,13 @@ components:
         - organizer
         - unknownFutureValue
       type: string
+    microsoft.graph.meetingLiveShareOptions:
+      title: meetingLiveShareOptions
+      enum:
+        - enabled
+        - disabled
+        - unknownFutureValue
+      type: string
     microsoft.graph.meetingChatMode:
       title: meetingChatMode
       enum:
@@ -22653,22 +23008,6 @@ components:
           nullable: true
       additionalProperties:
         type: object
-    microsoft.graph.virtualEventRegistrationQuestionBase:
-      allOf:
-        - $ref: '#/components/schemas/microsoft.graph.entity'
-        - title: virtualEventRegistrationQuestionBase
-          type: object
-          properties:
-            displayName:
-              type: string
-              description: Display name of the registration question.
-              nullable: true
-            isRequired:
-              type: boolean
-              description: Indicates whether an answer to the question is required. The default value is false.
-              nullable: true
-          additionalProperties:
-            type: object
     microsoft.graph.ODataErrors.MainError:
       required:
         - code
@@ -23232,6 +23571,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/microsoft.graph.virtualEventWebinarCollectionResponse'
+    microsoft.graph.virtualEventRegistrationQuestionBaseCollectionResponse:
+      description: Retrieved collection
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/microsoft.graph.virtualEventRegistrationQuestionBaseCollectionResponse'
   parameters:
     top:
       name: $top

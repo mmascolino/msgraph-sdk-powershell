@@ -14658,11 +14658,11 @@ paths:
     delete:
       tags:
         - identityGovernance.entitlementManagement
-      summary: Delete accessPackageAssignmentWorkflowExtension
-      description: 'Delete an accessPackageAssignmentWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:'
+      summary: Delete accessPackageAssignmentRequestWorkflowExtension
+      description: 'Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:'
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/accesspackageassignmentworkflowextension-delete?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-delete?view=graph-rest-1.0
       operationId: identityGovernance.entitlementManagement.catalog_DeleteCustomWorkflowExtension
       parameters:
         - name: accessPackageCatalog-id
@@ -56255,11 +56255,11 @@ paths:
     get:
       tags:
         - identityGovernance.termsOfUseContainer
-      summary: List files (terms of use agreement files)
-      description: Retrieve all files related to an agreement. This includes the default file and all localized files.
+      summary: Get agreement
+      description: Retrieve the properties and relationships of an agreement object.
       externalDocs:
         description: Find more info here
-        url: https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0
+        url: https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0
       operationId: identityGovernance.termsGraphOPreUse_GetAgreement
       parameters:
         - name: agreement-id
@@ -58591,7 +58591,7 @@ paths:
       tags:
         - roleManagement.rbacApplication
       summary: Get directoryScope from roleManagement
-      description: The directory object that is the scope of the assignment. Read-only. Supports $expand.
+      description: The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
       operationId: roleManagement.directory.roleAssignment_GetDirectoryScope
       parameters:
         - name: unifiedRoleAssignment-id
@@ -58637,7 +58637,7 @@ paths:
       tags:
         - roleManagement.rbacApplication
       summary: Get principal from roleManagement
-      description: Referencing the assigned principal. Read-only. Supports $expand.
+      description: Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
       operationId: roleManagement.directory.roleAssignment_GetPrincipal
       parameters:
         - name: unifiedRoleAssignment-id
@@ -58683,7 +58683,7 @@ paths:
       tags:
         - roleManagement.rbacApplication
       summary: Get roleDefinition from roleManagement
-      description: The roleDefinition the assignment is for.  Supports $expand.
+      description: The roleDefinition the assignment is for. Supports $expand.
       operationId: roleManagement.directory.roleAssignment_GetRoleDefinition
       parameters:
         - name: unifiedRoleAssignment-id
@@ -63020,7 +63020,7 @@ paths:
       tags:
         - roleManagement.rbacApplication
       summary: Get directoryScope from roleManagement
-      description: The directory object that is the scope of the assignment. Read-only. Supports $expand.
+      description: The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
       operationId: roleManagement.entitlementManagement.roleAssignment_GetDirectoryScope
       parameters:
         - name: unifiedRoleAssignment-id
@@ -63066,7 +63066,7 @@ paths:
       tags:
         - roleManagement.rbacApplication
       summary: Get principal from roleManagement
-      description: Referencing the assigned principal. Read-only. Supports $expand.
+      description: Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
       operationId: roleManagement.entitlementManagement.roleAssignment_GetPrincipal
       parameters:
         - name: unifiedRoleAssignment-id
@@ -63112,7 +63112,7 @@ paths:
       tags:
         - roleManagement.rbacApplication
       summary: Get roleDefinition from roleManagement
-      description: The roleDefinition the assignment is for.  Supports $expand.
+      description: The roleDefinition the assignment is for. Supports $expand.
       operationId: roleManagement.entitlementManagement.roleAssignment_GetRoleDefinition
       parameters:
         - name: unifiedRoleAssignment-id
@@ -71175,11 +71175,11 @@ components:
             pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
             type: string
             format: uuid
-          description: A collection of the unique identifiers for plans that have been disabled.
+          description: A collection of the unique identifiers for plans that have been disabled. IDs are available in servicePlans > servicePlanId in the tenant's subscribedSkus or serviceStatus > servicePlanId in the tenant's companySubscription.
         skuId:
           pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
           type: string
-          description: The unique identifier for the SKU.
+          description: The unique identifier for the SKU. Corresponds to the skuId from subscribedSkus or companySubscription.
           format: uuid
           nullable: true
       additionalProperties:
